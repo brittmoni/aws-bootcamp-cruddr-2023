@@ -20,8 +20,6 @@ AWS Billing Alarm:
 
 Since I've used AWS some in the past, the AWS CLI was already set up on my machine.
 
-AWS CLI:
-![AWS CLI](screenshots/week0/AWSCLI.png)
 
 Cruddur Logical Diagram:
 https://lucid.app/lucidchart/b8bf7956-62b5-4228-957d-270e5f291795/edit?viewport_loc=-239%2C-698%2C678%2C752%2C0_0&invitationId=inv_097ac65e-c2d9-420d-9909-a61f5f321894
