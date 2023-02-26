@@ -11,6 +11,6 @@ I also configured the Notifications endpoints for the Cruddur application. Now w
 
 On the backend, for the Notifications page, I had to build notfications_activities.py and update app.py so that the correct backend endpoint will be reached when the user selects Notifications on the UI.
 
-The last thing that I did was update the docker-compose.yml file to include a DynamoDB Local container and a Postgres container. At the moment, no data is being stored in these containers but I was able to verify that they are being loaded when executing the 'Compose Up' command.
+The last thing that I did was update the docker-compose.yml file to launch a DynamoDB Local container and a Postgres container. At the moment, no data is being sent to or stored in these containers but I was able to verify that they are being loaded when executing the 'Compose Up' command.
 
 ![Docker Container Builds and Ports](./screenshots/week1/Docker_Ports.png)
