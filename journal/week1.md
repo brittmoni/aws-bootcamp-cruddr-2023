@@ -7,7 +7,10 @@ For this week's homework I created the Docker containers for the backend and the
 I also configured the Notifications endpoints for the Cruddur application. Now when the user navigates to Notifications in the application, the Notifications page is displaying properly. From the UI, I built the  NotificationsFeedPage.js in the frontend-react-js/src/pages directory. I also added the NotificationsFeedPage.css stylesheet so that the Notifications page styling remained consistent with the styling of the application. After creating NotificationsFeedPage.js and NotificationsFeedPage.css, I also had to update App.js so that on click of Notifications on the UI, the appropriate page will be loaded.
 
 ![Cruddur Notifications](./screenshots/week1/CruddurNotifications.png)
+![Cruddur Notifications Backend](./screenshots/week1/CruddurNotifsBackend.png)
 
 On the backend, for the Notifications page, I had to build notfications_activities.py and update app.py so that the correct backend endpoint will be reached when the user selects Notifications on the UI.
 
 The last thing that I did was update the docker-compose.yml file to include a DynamoDB Local container and a Postgres container. At the moment, no data is being stored in these containers but I was able to verify that they are being loaded when executing the 'Compose Up' command.
+
+![Docker Container Builds and Ports](./screenshots/week1/Docker_Ports.png)
