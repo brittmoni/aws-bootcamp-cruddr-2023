@@ -1,23 +1,51 @@
 from psycopg_pool import ConnectionPool
 import os
+import re
+import sys
 
 class Db:
   def __init__(self):
     self.init_pool()
 
+  def template(name):
+    with open('create_activity.sql', 'r') as f:
+      sql_query = f.read()
+
   def init_pool(self):
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
 
-# commit data such as an insert
-  def query_commit(self):
+# Check for returning in all caps
+  def query_commit(self, sql, parameters):
+    print("SQL Statement - [commit with returning]-------")
+    print(sql + "\n")
+
+    pattern = r"\bRETURNING\b"
+    is_returning_id = re.search(pattern, sql)
+
     try:
       conn = self.pool.connection()
       cur = conn.cursor()
-      cur.execute(sql)
+      cur.execute(sql, parameters)
+      if is_returning_id:
+        returning_id = cur.fetchone()[0]
       conn.commit()
+      if is_returning_id:
+        return returning_id
     except Exception as err:
-      print_sql_err(err)
+      self.print_sql_err(err)
+
+
+# commit data such as an insert
+  # def query_commit(self, sql, *args):
+  #   print("SQL Statement - [commit]-------")
+  #   try:
+  #     conn = self.pool.connection()
+  #     cur = conn.cursor()
+  #     cur.execute(sql)
+  #     conn.commit()
+  #   except Exception as err:
+  #     print_sql_err(err)
 
 # return json object
 def query_object(self, sql):
