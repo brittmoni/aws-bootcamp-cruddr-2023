@@ -57,9 +57,12 @@ class CreateActivity:
     return model
 
   def create_activity(user_uuid, message, expires_at):
-    sql = """
+    sql = f"""
       INSERT INTO (user_uuid, message, expires_at)
       VALUES ("{user_uuid}", "{message}", "{expires_at}")
+      RETURNING user_uuid
     """
 
-    # query_commit(sql)
+    query_commit(sql)
+
+  # def query_object_activity():
