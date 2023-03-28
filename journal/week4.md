@@ -1,1 +1,9 @@
 # Week 4 — Postgres and RDS
+
+Week 4 was pretty tough. I ran into issues with Gitpod as well as general code challenges. To start, I installed the PostgreSQL adapter psycopg to be used with Python. When integrating psycopg into the code, I kept getting ModuleNotFound errors. I uninstalled and reinstalled psycopg multiple times but still the error persisted. Finally I had to delete my Gitpod workspace and recreate it. After doing that, I no longer ran into the ModuleNotFound error after reinstalling psycopg. I also ran into a few errors with connecting RDS to the code. This was mostly due to an error on my part setting the production connection URL.
+
+PostgreSQL was installed in a previous week so I had to make sure that I could connect first via the localhost. After verifying that I could connect to PostgreSQL via the localhost, I then set up RDS using the AWS console. Once the RDS endpoint was created, I then set the production connection URL environment variable in Gitpod. Afterwards I verified that I was able to connect to PostgreSQL using the prod connection URL.
+
+The next thing was to create the SQL files which set up the schema for the Cruddur database tables and also creates seed data to be inserted into the Cruddur database. Then the bin folder was created which contains the bash scripts to manipulate the Cruddur database.
+
+The create_activity endpoint was also set up so that Cruddur users can Crud and the data will be saved into the RDS database. In order to fully set up the create_activity endpoint, there also had to be changes made to the db.py file in the lib folder. I also broke out the SQL code which stores newly created Cruds in the Cruddur RDS, displays the Cruds on the Home page, and also returns Cruds based on the user's uuid. 
