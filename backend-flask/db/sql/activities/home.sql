@@ -10,5 +10,7 @@ SELECT
   activities.expires_at,
   activities.created_at
 FROM public.activities
-LEFT JOIN public.users ON users.uuid = activities.user_uuid
+LEFT JOIN public.users ON users.uuid = activities.uuid
 ORDER BY activities.created_at DESC
+
+-- On line 13, activities.uuid was activities.user_uuid
