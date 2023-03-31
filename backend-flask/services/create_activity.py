@@ -61,7 +61,7 @@ class CreateActivity:
       })
     return uuid
 
-  def query_object_activity():
+  def query_object_activity(uuid):
     sql = db.template('activities', 'object')
 
     uuid = db.query_object(sql,{
