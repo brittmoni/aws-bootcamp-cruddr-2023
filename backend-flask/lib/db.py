@@ -75,7 +75,7 @@ class Db:
         return json[0]
 
   # return json object
-  def query_object(self, sql, parameters={}):
+  def query_object(self, sql, params={}):
     self.print_sql('json', sql, params)
     print("SQL Statement - [object] ----------")
     print(sql)
@@ -89,7 +89,7 @@ class Db:
         return json[0]
 
   # return array of json objects
-  def query_array(self, sql, parameters={}):
+  def query_array(self, sql, params={}):
     self.print_sql('array', sql, params)
     print("SQL Statement - [array] ----------")
     print(sql)
@@ -97,7 +97,7 @@ class Db:
     wrapped_sql = self.query_wrap_array(sql)
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
-        cur.execute(wrapped_sql, parameters)
+        cur.execute(wrapped_sql, params)
         # this will return a tuple
         # the first field being the data
         json = cur.fetchone()
