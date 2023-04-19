@@ -18,7 +18,7 @@ class Ddb:
     table_name = 'cruddur-messages'
     query_params = {
       'TableName': table_name,
-      'KeyConditionExpression': 'pk = :pkey',
+      'KeyConditionExpression': 'pkey = :pkey',
       'ScanIndexForward': False,
       'Limit': 20,
       'ExpressionAttributeValues': {
@@ -26,13 +26,14 @@ class Ddb:
       }
     }
     print('query-params:', query_params)
-    print('client')
-    print(client)
+    print('client:', client)
 
     # query the table
     response = client.query(**query_params)
     items = response['Items']
     
+    print("items: ", items)
+
     results = []
     for item in items:
       last_sent_at = item['sk']['S']
