@@ -18,21 +18,21 @@ response = ddb.create_table(
   TableName=table_name,
   AttributeDefinitions=[
     {
-      'AttributeName': 'pk',
+      'AttributeName': 'pkey',
       'AttributeType': 'S'
     },
     {
-      'AttributeName': 'sk',
+      'AttributeName': 'skey',
       'AttributeType': 'S'
     },
   ],
   KeySchema=[
     {
-      'AttributeName': 'pk',
+      'AttributeName': 'pkey',
       'KeyType': 'HASH'
     },
     {
-      'AttributeName': 'sk',
+      'AttributeName': 'skey',
       'KeyType': 'RANGE'
     },
   ],

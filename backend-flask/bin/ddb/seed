@@ -50,8 +50,8 @@ def get_user_uuids():
 def create_message_group(client,message_group_uuid, my_user_uuid, last_message_at=None, message=None, other_user_uuid=None, other_user_display_name=None, other_user_handle=None):
   table_name = 'cruddur-messages'
   record = {
-    'pk':   {'S': f"GRP#{my_user_uuid}"},
-    'sk':   {'S': last_message_at},
+    'pkey':   {'S': f"GRP#{my_user_uuid}"},
+    'skey':   {'S': last_message_at},
     'message_group_uuid': {'S': message_group_uuid},
     'message':  {'S': message},
     'user_uuid': {'S': other_user_uuid},
@@ -67,8 +67,8 @@ def create_message_group(client,message_group_uuid, my_user_uuid, last_message_a
 
 def create_message(client,message_group_uuid, created_at, message, my_user_uuid, my_user_display_name, my_user_handle):
   record = {
-    'pk':   {'S': f"MSG#{message_group_uuid}"},
-    'sk':   {'S': created_at },
+    'pkey':   {'S': f"MSG#{message_group_uuid}"},
+    'skey':   {'S': created_at },
     'message_uuid': { 'S': str(uuid.uuid4()) },
     'message': {'S': message},
     'user_uuid': {'S': my_user_uuid},
