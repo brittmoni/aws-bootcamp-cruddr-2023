@@ -21,4 +21,4 @@ class MessageGroups:
 
     #MomentoCounter.reset(f"msgs/{user_handle}")
     # model['data'] = data
-    # return model
+    return model

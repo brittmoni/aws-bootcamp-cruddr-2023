@@ -3,7 +3,7 @@ VALUES
   ('Andrew Brown', 'test@email.com', 'andrewbrown' , 'MOCK'),
   ('Andrew Bayko', 'test@email.com', 'bayko' , 'MOCK'),
   ('Britt', 'test@email.com', 'Britt', '226f7e4d-a5dd-42d3-a357-1b7efec16d23'),
-  ('Tiff', 'test@email.com', 'Tiff', 'MOCK');
+  ('Tiff', 'test@email.com', 'Tiff', 'dee7852a-523c-4577-a190-714f8ac3b5d5');
 
 INSERT INTO public.activities (user_uuid, message, expires_at)
 VALUES
